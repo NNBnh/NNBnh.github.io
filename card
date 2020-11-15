@@ -1,0 +1,20 @@
+┌────────────────────────────────────────────────────────┐
+│                    \033[4m  \033[0m   \033[4m  \033[0m     \033[4m   \033[0m                     │
+│                    ╲ ╲  ╲ ╲    ▏  ╲                    │
+│                     ╲ ╲  ╲ ╲   ▏  \033[4m╱\033[0m                    │
+│                      ╲ ╲  ╲ ╲  ▏   ╲                   │
+│                       ╲\033[4m ╲\033[0m  ╲\033[4m ╲\033[0m \033[4m▏   \033[0m╱                   │
+│                     Dev that \033[3mSuperB\033[0m                    │
+│                                                        │
+│  \033[1;94mName:\033[0m               Nguyễn Nhật Anh                   │
+│  \033[1;94mDescription:\033[0m        Hi, I'm an artist                 │
+│                              an UX/UI designer         │
+│                              a sorfware developer      │
+│                              a web designer            │
+│                      But mainly, I'm a game developer  │
+├────────────────────────────────────────────────────────┤
+│  \033[1;94mLinks:\033[0m              Website:                          │
+│                      └─ https://nnbnh.github.io        │
+│                      Github:                           │
+│                      └─ https://github.com/NNBnh       │
+└────────────────────────────────────────────────────────┘
