@@ -10,26 +10,44 @@
   <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
-<body class="bg-black bg-fixed bg-cover bg-center bg-[url('https://user-images.githubusercontent.com/43980777/176233701-8a6ff0f7-03c4-4d58-8920-259cef9ce470.png')]">
+<body
+  class="bg-black bg-fixed bg-cover bg-center bg-[url('https://user-images.githubusercontent.com/43980777/176233701-8a6ff0f7-03c4-4d58-8920-259cef9ce470.png')]"
+  x-data="{ lang: 'en' }"
+>
+
+<header class="body-font">
+  <div class="container mx-auto flex px-5 py-8 flex-row items-center">
+    <button
+      class="inline-flex items-center text-gray-400 bg-gray-600 border-0 py-1 px-3 focus:outline-none hover:bg-gray-500 hover:text-white rounded text-base mt-4 md:mt-0"
+      @click="lang = lang === 'vn' ? 'en' : 'vn'"
+    >
+      <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 mr-2" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9" />
+      </svg>
+      <span x-text="lang === 'vn' ? 'English' : 'Tiếng Việt'"></span>      
+    </button>
+  </div>
+</header>
 
 <section class="text-gray-400 body-font">
-  <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center">
+  <div class="container mx-auto flex px-5 pb-24 md:flex-row flex-col items-center">
     <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
       <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
-        Hello. My name is <spam class="inline-block font-bold text-blue-400">Nguyễn Nhật Anh</spam>
+        <span x-text="lang === 'vn' ? 'Xin chào, tên mình là' : 'Hello. My name is'"></span>
+        <span class="inline-block font-bold text-blue-400">Nguyễn Nhật Anh</span>
       </h1>
-      <p class="mb-8 leading-relaxed text-justify">
-        I am a front-end web developer, a terminal enthusiast and a hobbyist game developer.
-        I'm live in Hanoi/Vietnam and currently study at EPU university.
-        I'm happy to collaborate with your awesome projects!
+      <p
+        class="mb-8 leading-relaxed text-justify"
+        x-text="lang === 'vn' ? 'Mình là một nhà phát triển web front-end, một người đam mê Linux và mình có sở thích làm game. Mình sinh ra và lớn lên ở Hà Nội và hiện đang học tại trường đại học Điện lực EPU. Mình rất mong muốn được làm việc trong những dự án tuyệt vời cùng bạn!' : 'I am a front-end web developer, a terminal enthusiast and a hobbyist game developer. I&rsquo;m live in Hanoi/Vietnam and currently study at EPU university.I&rsquo;m happy to collaborate with your awesome projects!'"
+      >
       </p>
       <div class="flex justify-center">
-        <a class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg" href="https://github.com/NNBnh">Github</a>
-        <a class="ml-4 inline-flex text-gray-400 bg-gray-600 border-0 py-2 px-6 focus:outline-none hover:bg-gray-700 hover:text-white rounded text-lg" href="https://github.com/NNBnh/dotfiles/wiki">Blogs</a>
+        <a class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-400 rounded text-lg" href="https://github.com/NNBnh">Github</a>
+        <a class="ml-4 inline-flex text-gray-400 bg-gray-600 border-0 py-2 px-6 focus:outline-none hover:bg-gray-500 hover:text-white rounded text-lg" href="https://github.com/NNBnh/dotfiles/wiki">Blogs</a>
       </div>
     </div>
     <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-      <img class="object-cover object-center rounded-xl duration-200 hover:rotate-2 hover:drop-shadow-xl" alt="me" src="https://dummyimage.com/720x720">
+      <img class="object-cover object-center rounded-xl drop-shadow-xl duration-200 hover:rotate-2 hover:drop-shadow-2xl" alt="me" src="https://raw.githubusercontent.com/NNBnh/personal/main/profile_pictrue.jpg">
     </div>
   </div>
 </section>
@@ -37,8 +55,8 @@
 <section class="text-gray-600 bg-white body-font">
   <div class="container px-5 py-24 mx-auto">
     <div class="flex flex-wrap w-full mb-20 flex-col items-center text-center">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">My Skill Board</h1>
-      <p class="lg:w-1/2 w-full leading-relaxed text-gray-500">Skills and Technologies that I have experience with.</p>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900" x-text="lang === 'vn' ? 'Kinh nghiệm và kĩ năng' : 'My Skill Board'"></h1>
+      <p class="lg:w-1/2 w-full leading-relaxed text-gray-500" x-show="lang !== 'vn'">Skills and Technologies that I have experience with.</p>
     </div>
     <div class="flex flex-wrap -m-4">
       <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -49,7 +67,11 @@
             </svg>
           </div>
           <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Git</h2>
-          <p class="leading-relaxed text-base text-justify">I have experience with Git version control system for 3 years and I'm confident to handle all sort of merge conflict.</p>
+          <p
+            class="leading-relaxed text-base text-justify"
+            x-text="lang === 'vn' ? 'Mình có 3 năm kinh nghiệm sử dụng Git và có thể tự tin xử lý tất cả các loại xung đột hợp nhất cho dự án cá nhân và tập thể.' : 'I have experience with Git version control system for 3 years and I am confident to handle all sort of merge conflict.'"
+          >
+          </p>
         </div>
       </div>
       <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -60,7 +82,11 @@
             </svg>
           </div>
           <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Front-end Web Development</h2>
-          <p class="leading-relaxed text-base text-justify">I have created and contributed to many web applications using Vue, Svelte and other bleeding edge web-technologies.</p>
+          <p
+            class="leading-relaxed text-base text-justify"
+            x-text="lang === 'vn' ? 'Mình đã tạo và đóng góp cho nhiều webapp sử dụng Vue, Svelte và các công nghệ web hiện đại khác.' : 'I have created and contributed to many web applications using Vue, Svelte and other bleeding edge web-technologies.'"
+          >
+          </p>
         </div>
       </div>
       <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -71,7 +97,11 @@
             </svg>
           </div>
           <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Terminal</h2>
-          <p class="leading-relaxed text-base text-justify">I use the terminal to manage files and do sysadmin stuffs daily with a fast keyboard driven workflow with NeoVim.</p>
+          <p
+            class="leading-relaxed text-base text-justify"
+            x-text="lang === 'vn' ? 'Mình có thể sử dụng Terminal và NeoVim để quản lý files và xử lý các công việc sysadmin với workflow trôi chảy.' : 'I use the terminal to manage files and do sysadmin stuffs daily with a fast keyboard driven workflow with NeoVim.'"
+          >
+          </p>
         </div>
       </div>
       <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -82,7 +112,11 @@
             </svg>
           </div>
           <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Shell</h2>
-          <p class="leading-relaxed text-base text-justify">I have learned and mastered the in and out of POSIX compliant shell (Sh, Bash, Zsh...). My shell scripts will ensured optimization and portability to run on any *nix machines.</p>
+          <p
+            class="leading-relaxed text-base text-justify"
+            x-text="lang === 'vn' ? 'Mình nắm vững tất cả mọi thứ từ trong ra ngoài về POSIX-shell (Sh, Bash, Zsh...). Shell script mà mình viết có thể đảm báo sự tối ưu và tính di động để chạy trên mọi hệ điều hành họ Unix.' : 'I have learned and mastered the in and out of POSIX compliant shell (Sh, Bash, Zsh...). My shell scripts will ensured optimization and portability to run on any *nix machines.'"
+          >
+          </p>
         </div>
       </div>
       <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -92,8 +126,12 @@
               <path d="M14.25.18l.9.2.73.26.59.3.45.32.34.34.25.34.16.33.1.3.04.26.02.2-.01.13V8.5l-.05.63-.13.55-.21.46-.26.38-.3.31-.33.25-.35.19-.35.14-.33.1-.3.07-.26.04-.21.02H8.77l-.69.05-.59.14-.5.22-.41.27-.33.32-.27.35-.2.36-.15.37-.1.35-.07.32-.04.27-.02.21v3.06H3.17l-.21-.03-.28-.07-.32-.12-.35-.18-.36-.26-.36-.36-.35-.46-.32-.59-.28-.73-.21-.88-.14-1.05-.05-1.23.06-1.22.16-1.04.24-.87.32-.71.36-.57.4-.44.42-.33.42-.24.4-.16.36-.1.32-.05.24-.01h.16l.06.01h8.16v-.83H6.18l-.01-2.75-.02-.37.05-.34.11-.31.17-.28.25-.26.31-.23.38-.2.44-.18.51-.15.58-.12.64-.1.71-.06.77-.04.84-.02 1.27.05zm-6.3 1.98l-.23.33-.08.41.08.41.23.34.33.22.41.09.41-.09.33-.22.23-.34.08-.41-.08-.41-.23-.33-.33-.22-.41-.09-.41.09zm13.09 3.95l.28.06.32.12.35.18.36.27.36.35.35.47.32.59.28.73.21.88.14 1.04.05 1.23-.06 1.23-.16 1.04-.24.86-.32.71-.36.57-.4.45-.42.33-.42.24-.4.16-.36.09-.32.05-.24.02-.16-.01h-8.22v.82h5.84l.01 2.76.02.36-.05.34-.11.31-.17.29-.25.25-.31.24-.38.2-.44.17-.51.15-.58.13-.64.09-.71.07-.77.04-.84.01-1.27-.04-1.07-.14-.9-.2-.73-.25-.59-.3-.45-.33-.34-.34-.25-.34-.16-.33-.1-.3-.04-.25-.02-.2.01-.13v-5.34l.05-.64.13-.54.21-.46.26-.38.3-.32.33-.24.35-.2.35-.14.33-.1.3-.06.26-.04.21-.02.13-.01h5.84l.69-.05.59-.14.5-.21.41-.28.33-.32.27-.35.2-.36.15-.36.1-.35.07-.32.04-.28.02-.21V6.07h2.09l.14.01zm-6.47 14.25l-.23.33-.08.41.08.41.23.33.33.23.41.08.41-.08.33-.23.23-.33.08-.41-.08-.41-.23-.33-.33-.23-.41-.08-.41.08z"/>
             </svg>
           </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Scripting languages</h2>
-          <p class="leading-relaxed text-base text-justify">I also have experience writing CLI tools, plugins and scripts with Python, Ruby, Crystal and Lua with OOP (object-oriented programming) paradigm.</p>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-2" x-text="lang === 'vn' ? 'Scripting' : 'Scripting languages'"></h2>
+          <p
+            class="leading-relaxed text-base text-justify"
+            x-text="lang === 'vn' ? 'Tôi cũng có kinh nghiệm viết script, plugin và công cụ phát triển bằng Python, Ruby, Crystal và Lua với mô hình OOP (lập trình hướng đối tượng).' : 'I also have experience writing CLI tools, plugins and scripts with Python, Ruby, Crystal and Lua with OOP (object-oriented programming) paradigm.'"
+          >
+          </p>
         </div>
       </div>
       <div class="xl:w-1/3 md:w-1/2 p-4">
@@ -104,29 +142,41 @@
             </svg>
           </div>
           <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Linux</h2>
-          <p class="leading-relaxed text-base text-justify">I have switched my main operating system to Linux for 3 years. I'm can confidently manage Arch Linux, NixOS, Void Linux, Debian and Ubuntu based distribution.</p>
+          <p
+            class="leading-relaxed text-base text-justify"
+            x-text="lang === 'vn' ? 'Mình đã sử dụng Linux làm hệ điều hành chính được 3 năm. Mình có thể tự tin sử dụng hệ điều hành Arch Linux, NixOS, Void Linux, Debian và Ubuntu.' : 'I have switched my main operating system to Linux for 3 years. I&rsquo;m can confidently manage Arch Linux, NixOS, Void Linux, Debian and Ubuntu based distribution.'"
+          >
+          </p>
         </div>
       </div>
       <div class="xl:w-1/3 md:w-1/2 p-4">
         <div class="bg-white border border-gray-200 p-6 rounded-lg duration-200 hover:rotate-1 hover:drop-shadow-xl">
           <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-4">
-            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 20 20">
-              <path fill-rule="evenodd" d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 0l-2 2a1 1 0 101.414 1.414L8 10.414l1.293 1.293a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+              <path d="M21.53 4.306v15.363q0 .807-.472 1.433-.472.627-1.253.85l-6.888 1.974q-.136.037-.29.055-.156.019-.293.019-.396 0-.72-.105-.321-.106-.656-.292l-4.505-2.544q-.248-.137-.391-.366-.143-.23-.143-.515 0-.434.304-.738.304-.305.739-.305h5.831V4.964l-4.38 1.563q-.533.187-.856.658-.322.472-.322 1.03v8.078q0 .496-.248.912-.25.416-.683.651l-2.072 1.13q-.286.148-.571.148-.497 0-.844-.347-.348-.347-.348-.844V6.563q0-.62.33-1.19.328-.571.874-.881L11.07.285q.248-.136.534-.21.285-.075.57-.075.211 0 .38.031.166.031.364.093l6.888 1.899q.384.11.7.329.317.217.547.52.23.305.353.67.125.367.125.764zm-1.588 15.363V4.306q0-.273-.16-.478-.163-.204-.423-.28l-3.388-.93q-.397-.111-.794-.23-.397-.117-.794-.216v19.68l4.976-1.427q.26-.074.422-.28.161-.204.161-.477z"/>
             </svg>
           </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Office work and Content creation</h2>
-          <p class="leading-relaxed text-base text-justify">I'm not only good at designing website but I'm can edit video, photoshop, make professional presentation, word and markdown document.</p>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-2" x-text="lang === 'vn' ? 'Kỹ năng văn phòng' : 'Office work and Content creation'"></h2>
+          <p
+            class="leading-relaxed text-base text-justify"
+            x-text="lang === 'vn' ? 'Mình không chỉ giỏi thiết kế website mà còn có thể edit video, photoshop, làm powerpoint, word và markdown chuyên nghiệp.' : 'I&rsquo;m not only good at designing website but I&rsquo;m can edit video, photoshop, make professional presentation, word and markdown document.'"
+          >
+          </p>
         </div>
       </div>
       <div class="xl:w-1/3 md:w-1/2 p-4">
         <div class="bg-white border border-gray-200 p-6 rounded-lg duration-200 hover:rotate-1 hover:drop-shadow-xl">
           <div class="w-10 h-10 inline-flex items-center justify-center rounded-full bg-blue-100 text-blue-500 mb-4">
-            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 20 20">
-              <path d="M2 10.5a1.5 1.5 0 113 0v6a1.5 1.5 0 01-3 0v-6zM6 10.333v5.43a2 2 0 001.106 1.79l.05.025A4 4 0 008.943 18h5.416a2 2 0 001.962-1.608l1.2-6A2 2 0 0015.56 8H12V4a2 2 0 00-2-2 1 1 0 00-1 1v.667a4 4 0 01-.8 2.4L6.8 7.933a4 4 0 00-.8 2.4z" />
+            <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-6 h-6" viewBox="0 0 24 24">
+              <path d="M12 .357C5.385.357 0 5.69 0 12.254c0 4.36 2.358 8.153 5.896 10.204l.77-5.076a7.046 7.046 0 01-1.846-4.719c0-3.897 3.18-7.076 7.13-7.076 3.948 0 7.126 3.18 7.126 7.076 0 1.847-.717 3.488-1.846 4.77L18 22.51c3.59-2.05 6-5.899 6-10.258C24 5.69 18.615.357 12 .357zm-.05 8.157a3.786 3.786 0 00-3.796 3.795 3.738 3.738 0 002.461 3.54L9.13 23.643h5.64l-1.435-7.795c1.385-.564 2.41-1.898 2.41-3.54a3.786 3.786 0 00-3.795-3.794z"/>
             </svg>
           </div>
-          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Team works</h2>
-          <p class="leading-relaxed text-base text-justify">I'm very open-mind and easy to collaborative. You can't speak Vietnamese? No worry, I'm pretty fluent in English.</p>
+          <h2 class="text-lg text-gray-900 font-medium title-font mb-2">Làm việc nhóm</h2>
+          <p
+            class="leading-relaxed text-base text-justify"
+            x-text="lang === 'vn' ? 'Mình sẽ là một thành viên cởi mở và năng nổ. Với trình độ tiếng Anh bậc 4, mình có thể dễ dàng giao lưu và hợp tác với bạn bè quốc tế.' : 'I&rsquo;m very open-mind and easy to collaborative. You can&rsquo;t speak Vietnamese? No worry, I&rsquo;m pretty fluent in English.'"
+          >
+          </p>
         </div>
       </div>
     </div>
@@ -136,20 +186,26 @@
 <section class="text-gray-600 bg-white body-font">
   <div class="container px-5 pb-24 mx-auto">
     <div class="lg:w-2/3 flex flex-col sm:flex-row sm:items-center items-start mx-auto">
-      <h1 class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900">#TODO</h1>
-      <a class="flex-shrink-0 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-600 rounded text-lg mt-10 sm:mt-0">Projects</a>
+      <h1
+        class="flex-grow sm:pr-16 text-2xl font-medium title-font text-gray-900 text-justify"
+        x-text="lang === 'vn' ? 'Bạn có thể xem chi tiết về tất cả các dự án mình đã làm:' : 'Check out all of my projects that I created and maintain'"
+      >
+      </h1>
+      <a
+        class="flex-shrink-0 text-white bg-blue-500 border-0 py-2 px-8 focus:outline-none hover:bg-blue-400 rounded text-lg mt-10 sm:mt-0"
+        href="https://github.com/NNBnh#-projects"
+        x-text="lang === 'vn' ? 'Xem thêm' : 'Projects'"
+      >
+      </a>
     </div>
   </div>
 </section>
 
 <section class="text-gray-400 bg-gray-900/50 body-font">
-  <div class="container px-5 py-24 mx-auto">
+  <div class="container px-5 pt-24 mx-auto">
     <div class="flex flex-col items-center text-center w-full">
-      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white">NNB's Github Stats</h1>
-      <div class="lg:w-3/4 mt-8">
-        <img class="md:hidden" alt="stats" src="https://metrics.lecoq.io/NNBnh?template=classic&isocalendar=1&notable=1&repositories=1&base.indepth=false&base.hireable=false&repositories=100&repositories.batch=100&repositories.forks=false&repositories.affiliations=owner&isocalendar.duration=full-year&notable.from=organization&notable.repositories=false&notable.indepth=false&notable.types=commit&repositories.featured=dotfiles%2C%20bfetch%2C%20superb-bootstrap%2C%20bmono&config.timezone=UTC&config.display=regular">
-        <img class="hidden md:block" alt="stats" src="https://metrics.lecoq.io/NNBnh?template=classic&isocalendar=1&notable=1&repositories=1&base.indepth=false&base.hireable=false&repositories=100&repositories.batch=100&repositories.forks=false&repositories.affiliations=owner&isocalendar.duration=full-year&notable.from=organization&notable.repositories=false&notable.indepth=false&notable.types=commit&repositories.featured=dotfiles%2C%20bfetch%2C%20superb-bootstrap%2C%20bmono&config.timezone=UTC&config.display=large">
-      </div>
+      <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-white" x-text="lang === 'vn' ? 'Thống kê thành tựu trên Github' : 'Github Stats'"></h1>
+      <img class="mt-8" alt="stats" src="https://metrics.lecoq.io/NNBnh?template=classic&isocalendar=1&repositories=1&notable=1&base.indepth=false&base.hireable=false&repositories=100&repositories.batch=100&repositories.forks=false&repositories.affiliations=owner&isocalendar.duration=full-year&notable.from=organization&notable.repositories=false&notable.indepth=false&notable.types=commit&repositories.featured=NNBnh%2Fdotfiles%2C%20NNBnh%2Fbfetch%2C%20NNBnh%2Fsuperb-bootstrap%2C%20NNBnh%2Fbmono&config.timezone=UTC">
     </div>
   </div>
 </section>
@@ -160,13 +216,20 @@
   </div>
   <div class="container px-5 py-24 mx-auto flex">
     <div class="lg:w-1/3 md:w-1/2 bg-white rounded-lg px-8 py-16 flex flex-col md:ml-auto w-full mt-10 md:mt-0 relative z-10 shadow-md">
-      <h2 class="text-gray-900 text-lg font-medium title-font text-center">Contract</h2>
+      <h2 class="text-gray-900 text-lg font-medium title-font text-center" x-text="lang === 'vn' ? 'Liên hệ' : 'Contract'"></h2>
       <p class="leading-relaxed my-8 text-gray-600 text-justify">
-        Feel free to chat with me on <a class="underline bold hover:text-black" href="https://discord.com/users/379173683555729408">Discord</a>
-        or send me an email at <span class="font-mono">nnbnh@protonmail.com</span>.
-        I will get back to you as soon as possibe!
+        <span x-text="lang === 'vn' ? 'Bạn có thể liên hệ mình qua' : 'Feel free to chat with me on'"></span>
+        <a class="underline bold hover:text-black" href="https://discord.com/users/379173683555729408">Discord</a>
+        <span x-text="lang === 'vn' ? 'hoặc gửi email cho mình qua' : 'or send me an email at'"></span>
+        <span class="font-mono">nnbnh@protonmail.com</span>.
+        <span x-text="lang === 'vn' ? 'Mình sẽ liên hệ lại với bạn sớm nhất có thể!' : 'I will get back to you as soon as possible!'"></span>
       </p>
-      <a class="text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg text-center" href="mailto:nnbnh@protonmail.com">Email me</a>
+      <a
+        class="text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-400 rounded text-lg text-center"
+        href="mailto:nnbnh@protonmail.com"
+        x-text="lang === 'vn' ? 'Gửi email' : 'Email me'"
+      >
+      </a>
     </div>
   </div>
 </section>
@@ -174,8 +237,8 @@
 <footer class="text-gray-400 bg-gray-900 body-font">
   <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
     <div class="flex title-font font-medium text-xl text-blue-400 italic items-center md:justify-start justify-center">NNB</div>
-    <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">Dev that SuperB
-      <span class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">© 2022</span>
+    <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">
+      <span class="text-gray-400">Dev that SuperB</span> &#169;<span class="ml-1" x-text="new Date().getFullYear()"></span>
     </p>
   </div>
 </footer>
