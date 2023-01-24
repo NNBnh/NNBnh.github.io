@@ -1,5 +1,33 @@
 <!DOCTYPE html>
-<meta charset="utf-8">
-<title>Redirecting to NNB's Github profile</title>
-<meta http-equiv="refresh" content="0; URL=https://github.com/NNBnh">
-<link rel="canonical" href="https://github.com/NNBnh">
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NNB - Dev that SuperB</title>
+  <meta name="description" content="Dev that SuperB" />
+  <link rel="icon" href="https://avatars.githubusercontent.com/u/43980777" />
+  <meta property="og:site_name" content="NNB - Dev that SuperB" />
+  <meta property="og:title" content="NNB" />
+  <meta property="og:description" content="Dev that SuperB" />
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/43980777" />
+  <meta property="og:type" content="profile" />
+  <meta property="profile:first_name" content="Nhật Anh" />
+  <meta property="profile:last_name" content="Nguyễn" />
+  <meta property="profile:username" content="NNBnh" />
+  <meta property="og:url" content="https://nnbnh.github.io" />
+  <meta property="og:locale" content="en" />
+  <meta property="og:locale:alternate" content="vi" />
+  <style>body{margin:0;background-color:rgb(0 0 0);}html,body{height:100%;overflow:hidden;}</style>
+  <script async src="https://unpkg.com/es-module-shims@1.3.6/dist/es-module-shims.js"></script>
+  <script type="importmap">{"imports":{"@splinetool/runtime":"https://unpkg.com/@splinetool/runtime@0.9.196/build/runtime.js"}}</script>
+</head>
+<body>
+  <canvas id="canvas3d"></canvas>
+</body>
+<script type="module">
+  import { Application } from '@splinetool/runtime';
+  const canvas = document.getElementById('canvas3d');
+  const app = new Application(canvas);
+  app.load('https://prod.spline.design/XiXmu8UfdGoiOJHO/scene.splinecode');
+</script>
+</html>
